@@ -26,21 +26,24 @@ public class Cuboid implements Cloneable, ConfigurationSerializable, Iterable<Bl
                 if(!min.getWorld().getUID().equals(max.getWorld().getUID())) {
                     throw new IllegalStateException("the two locations must be in the same world");
                 }else {
-                    throw new NullPointerException("at least one world is null");
+                    this.worldName = min.getWorld().getName();
+
+                    double minX = Math.min(min.getX(), max.getX());
+                    double minY = Math.min(min.getY(), min.getX());
+                    double minZ = Math.min(min.getZ(), max.getZ());
+
+                    double maxX = Math.max(min.getX(), max.getX());
+                    double maxY = Math.max(min.getY(), max.getY());
+                    double maxZ = Math.max(min.getZ(), max.getZ());
+
+                    this.minPoint = new Vector(minX, minY, minZ);
+                    this.maxPoint = new Vector(maxX, maxY, maxZ);
                 }
+
+            }else {
+                throw new NullPointerException("at least one world is null");
             }
-            this.worldName = min.getWorld().getName();
 
-            double minX = Math.min(min.getX(), max.getX());
-            double minY = Math.min(min.getY(), min.getX());
-            double minZ = Math.min(min.getZ(), max.getZ());
-
-            double maxX = Math.max(min.getX(), max.getX());
-            double maxY = Math.max(min.getY(), max.getY());
-            double maxZ = Math.max(min.getZ(), max.getZ());
-
-            this.minPoint = new Vector(minX, minY, minZ);
-            this.maxPoint = new Vector(maxX, maxY, maxZ);
         }else {
             throw new NullPointerException("at least one location is null");
         }
@@ -74,7 +77,7 @@ public class Cuboid implements Cloneable, ConfigurationSerializable, Iterable<Bl
 
 
 
-    private World getWorld() {
+    public World getWorld() {
         return Bukkit.getWorld(this.worldName);
     }
 
