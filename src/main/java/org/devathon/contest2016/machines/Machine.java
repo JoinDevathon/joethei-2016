@@ -2,7 +2,7 @@ package org.devathon.contest2016.machines;
 
 import org.bukkit.Location;
 import org.bukkit.block.BlockFace;
-import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.Recipe;
 
 /**
  * @author joethei
@@ -10,8 +10,8 @@ import org.bukkit.inventory.ShapedRecipe;
  */
 public interface Machine {
 
-    public ShapedRecipe getRecipe();
+    public Recipe getRecipe();
     public void spawn(Location loc, BlockFace face);
     public void despawn();
-    public void registerEvents();
+    void registerEvents();
 }

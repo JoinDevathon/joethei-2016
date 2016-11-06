@@ -13,8 +13,9 @@ import org.devathon.contest2016.DevathonPlugin;
 import java.lang.reflect.Field;
 
 /**
+ * some entity stuff
  * @author joethei
- * @version 0.1
+ * @version 1.10
  */
 public class EntityModifier {
     private static Entity entity;
@@ -110,7 +111,6 @@ public class EntityModifier {
         }
 
         public Builder walkToLocation(Location location, float speed) {
-            //((CraftCreature) entity).getHandle().getNavigation().a(location.getX(), location.getY(), location.getZ(), speed);
             EntityCreature living = ((CraftCreature) entity).getHandle();
             PathEntity path = living.getNavigation().a(location.getX(), location.getY(), location.getZ());
             living.getNavigation().a(path, 1.5D);

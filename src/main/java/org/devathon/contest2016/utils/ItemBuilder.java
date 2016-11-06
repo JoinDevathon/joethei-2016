@@ -5,6 +5,7 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.material.MaterialData;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,7 +14,7 @@ import java.util.List;
 /**
  * creates items in a easy way
  * @author joethei
- * @version 0.1
+ * @version 1.0
  */
 public class ItemBuilder {
 
@@ -41,10 +42,20 @@ public class ItemBuilder {
         return this;
     }
 
-    public ItemBuilder lores(String[] lores) {
+    public ItemBuilder setLores(String[] lores) {
         List<String> list = new ArrayList<>();
         Collections.addAll(list, lores);
         getMeta().setLore(list);
+        return this;
+    }
+
+    public ItemBuilder setDurability(short durability) {
+        make().setDurability(durability);
+        return this;
+    }
+
+    public ItemBuilder setData(int data) {
+        make().setData(new MaterialData(make().getType(), (byte) data));
         return this;
     }
 

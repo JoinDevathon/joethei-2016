@@ -5,16 +5,16 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.block.Block;
-import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.util.Vector;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author joethei
- * @version 0.1
+ * @version 1.0
  */
-public class Cuboid implements Cloneable, ConfigurationSerializable, Iterable<Block>{
+public class Cuboid{
 
     private String worldName;
     private final Vector minPoint;
@@ -75,33 +75,7 @@ public class Cuboid implements Cloneable, ConfigurationSerializable, Iterable<Bl
         return this.maxPoint.toLocation(getWorld());
     }
 
-
-
     public World getWorld() {
         return Bukkit.getWorld(this.worldName);
-    }
-
-    @Override
-    public Cuboid clone() {
-        return new Cuboid(getLowerLocation(), getUpperLocation());
-    }
-
-    @Override
-    public Iterator<Block> iterator() {
-        return getBlocks().listIterator();
-    }
-
-    @Override
-    public Map<String, Object> serialize() {
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("worldName", this.worldName);
-        map.put("minX", this.minPoint.getX());
-        map.put("minY", this.minPoint.getY());
-        map.put("minZ", this.minPoint.getZ());
-
-        map.put("maxX", this.maxPoint.getX());
-        map.put("maxY", this.maxPoint.getY());
-        map.put("maxZ", this.maxPoint.getZ());
-        return map;
     }
 }
