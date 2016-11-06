@@ -2,22 +2,21 @@ package org.devathon.contest2016.events;
 
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.devathon.contest2016.DevathonPlugin;
-import org.devathon.contest2016.machines.MobSorter;
+import org.devathon.contest2016.machines.MobKiller;
 
 /**
  * @author joethei
  * @version 0.1
  */
-public class PlaceMobSorterEvent extends BlockPlaceEvent{
+public class PlaceMobKillerEvent extends BlockPlaceEvent{
 
-    private MobSorter mobSorter;
-    public MobSorter getMobSorter() {
-        return mobSorter;
+    private MobKiller mobKiller;
+    public MobKiller getMobKiller() {
+        return mobKiller;
     }
 
-    public PlaceMobSorterEvent(BlockPlaceEvent event) {
+    public PlaceMobKillerEvent(BlockPlaceEvent event) {
         super(event.getBlock(), event.getBlockReplacedState(), event.getBlockAgainst(), event.getItemInHand(), event.getPlayer(), event.canBuild());
-        mobSorter = DevathonPlugin.getMobSorter(event.getItemInHand());
+        mobKiller = DevathonPlugin.getMobKiller();
     }
-
 }

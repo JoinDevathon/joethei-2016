@@ -3,11 +3,9 @@ package org.devathon.contest2016.machines;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ShapedRecipe;
-import org.bukkit.util.Vector;
 import org.devathon.contest2016.utils.Cuboid;
 import org.devathon.contest2016.utils.EntityModifier;
 
@@ -18,7 +16,7 @@ import java.util.List;
  * @author joethei
  * @version 1.0
  */
-public class ConveyorBelt implements Machine{
+public abstract class ConveyorBelt implements Machine{
 
     private Cuboid cuboid;
     private List<Entity> entityList = new ArrayList<>();
@@ -29,7 +27,7 @@ public class ConveyorBelt implements Machine{
     }
 
     @Override
-    public void spawn(Location loc, BlockFace face) {
+    public void spawn(Location loc) {
         Location temp = loc.clone();
         loc.getBlock().setType(Material.WOOL);
         for(double i = 0.0D; i < 50.0D; i++)
@@ -55,26 +53,11 @@ public class ConveyorBelt implements Machine{
     }
 
     @Override
-    public void despawn() {
+    public void despawn(boolean drop) {
         for(Block block : getCuboid().getBlocks()) {
             block.setType(Material.AIR);
         }
         entityList.forEach(Entity::remove);
-    }
-
-    private Vector calculateVector(Location from, Location to) {
-        double dX = from.getX() - to.getX();
-        double dY = from.getY() - to.getY();
-        double dZ = from.getZ() - to.getZ();
-
-        double yaw = Math.atan2(dZ, dX);
-        double pitch = Math.atan2(Math.sqrt(dZ * dZ + dX * dX), dY) + Math.PI;
-
-        double x = Math.sin(pitch) * Math.cos(yaw);
-        double y = Math.sin(pitch) * Math.sin(yaw);
-        double z = Math.cos(pitch);
-
-        return new Vector(x, z, y);
     }
 
 }

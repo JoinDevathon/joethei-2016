@@ -7,8 +7,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.devathon.contest2016.listeners.BlockEvents;
-import org.devathon.contest2016.listeners.PlayerEvents;
 import org.devathon.contest2016.machines.ConveyorBelt;
+import org.devathon.contest2016.machines.MobKiller;
 import org.devathon.contest2016.machines.MobSorter;
 
 import java.util.ArrayList;
@@ -32,11 +32,19 @@ public class DevathonPlugin extends JavaPlugin{
     public static ArrayList<MobSorter> getMobSorters() {
         return sorterList;
     }
-    public static MobSorter getMobsorter(ItemStack item) {
+    public static MobSorter getMobSorter(ItemStack item) {
         for(MobSorter sorter : sorterList) {
             if(item.getItemMeta().getDisplayName().equals(sorter.getName() + " Sorter")) return sorter;
         }
         return null;
+    }
+
+    private static MobKiller mobKiller;
+    public static MobKiller getMobKiller() {
+        return mobKiller;
+    }
+    public static void setMobKiller(MobKiller mobKiller) {
+        DevathonPlugin.mobKiller = mobKiller;
     }
 
     @Override
@@ -48,8 +56,10 @@ public class DevathonPlugin extends JavaPlugin{
         new MobSorter("Zombie", EntityType.ZOMBIE, Material.ROTTEN_FLESH);
         new MobSorter("Skeleton", EntityType.SKELETON, Material.BONE);
 
+        setMobKiller(new MobKiller());
+
         pm.registerEvents(new BlockEvents(), this);
-        pm.registerEvents(new PlayerEvents(), this);
+        //pm.registerEvents(new PlayerEvents(), this);
     }
 
     @Override

@@ -1,12 +1,6 @@
 package org.devathon.contest2016.listeners;
 
-import org.bukkit.Material;
-import org.bukkit.entity.EntityType;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.devathon.contest2016.DevathonPlugin;
-import org.devathon.contest2016.machines.ConveyorBelt;
 
 /**
  * @author joethei
@@ -14,6 +8,7 @@ import org.devathon.contest2016.machines.ConveyorBelt;
  */
 public class PlayerEvents implements Listener {
 
+    /*
     @EventHandler
     public void onInteract(PlayerInteractEvent e) {
         if(e.getPlayer().getInventory().getItemInMainHand().getType() == Material.STICK) {
@@ -35,5 +30,6 @@ public class PlayerEvents implements Listener {
             }
         }
     }
+    */
 
 }
