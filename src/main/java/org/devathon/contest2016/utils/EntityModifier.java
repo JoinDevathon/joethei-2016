@@ -1,7 +1,6 @@
 package org.devathon.contest2016.utils;
 
-import net.minecraft.server.v1_10_R1.EntityLiving;
-import net.minecraft.server.v1_10_R1.NBTTagCompound;
+import net.minecraft.server.v1_10_R1.*;
 import org.bukkit.EntityEffect;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_10_R1.entity.CraftCreature;
@@ -36,7 +35,7 @@ public class EntityModifier {
     }
 
 
-    public static final class Builder{
+    public static final class Builder {
         public Builder setDisplayName(String name) {
             entity.setCustomName(name);
             entity.setCustomNameVisible(true);
@@ -95,8 +94,34 @@ public class EntityModifier {
             return this;
         }
 
+        public Builder setInvisible(boolean invisible) {
+            nmsEntity.setInvisible(invisible);
+            return this;
+        }
+
+        public Builder setGlowing(boolean glowing) {
+            craftEntity.setGlowing(glowing);
+            return this;
+        }
+
+        public Builder setNoGravity(boolean noGravity) {
+            nmsEntity.setNoGravity(noGravity);
+            return this;
+        }
+
         public Builder walkToLocation(Location location, float speed) {
-            ((CraftCreature) entity).getHandle().getNavigation().a(location.getX(), location.getY(), location.getZ(), speed);
+            //((CraftCreature) entity).getHandle().getNavigation().a(location.getX(), location.getY(), location.getZ(), speed);
+            EntityCreature living = ((CraftCreature) entity).getHandle();
+            PathEntity path = living.getNavigation().a(location.getX(), location.getY(), location.getZ());
+            living.getNavigation().a(path, 1.5D);
+
+            /*
+            EntityInsentient entityInsentient = (EntityInsentient) ((CraftEntity)entity).getHandle();
+            NavigationAbstract navigation = entityInsentient.getNavigation();
+            PathEntity pathEntity = navigation.a(location.getX(), location.getY(), location.getZ());
+            navigation.a(pathEntity, speed);
+            */
+
             return this;
         }
 
@@ -104,4 +129,5 @@ public class EntityModifier {
             return entity;
         }
     }
+
 }

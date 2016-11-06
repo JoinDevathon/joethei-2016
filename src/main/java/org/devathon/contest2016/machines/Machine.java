@@ -1,8 +1,8 @@
 package org.devathon.contest2016.machines;
 
 import org.bukkit.Location;
-import org.bukkit.entity.EntityType;
-import org.devathon.contest2016.utils.Cuboid;
+import org.bukkit.block.BlockFace;
+import org.bukkit.inventory.ShapedRecipe;
 
 /**
  * @author joethei
@@ -10,8 +10,8 @@ import org.devathon.contest2016.utils.Cuboid;
  */
 public interface Machine {
 
-    public Cuboid getCuboid();
-    public void spawn(Location loc);
+    public ShapedRecipe getRecipe();
+    public void spawn(Location loc, BlockFace face);
     public void despawn();
-    public void addEntity(EntityType type);
+    public void registerEvents();
 }
