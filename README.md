@@ -6,7 +6,7 @@
 - MobKiller: kills all those mobs.
 
 # TODO
-- fix all those bugs
+- find bugs
 
 # Theme
 
