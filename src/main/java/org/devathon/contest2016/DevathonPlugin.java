@@ -55,11 +55,14 @@ public class DevathonPlugin extends JavaPlugin{
         new MobSorter("Creeper", EntityType.CREEPER, Material.SULPHUR);
         new MobSorter("Zombie", EntityType.ZOMBIE, Material.ROTTEN_FLESH);
         new MobSorter("Skeleton", EntityType.SKELETON, Material.BONE);
+        new MobSorter("Enderman", EntityType.ENDERMAN, Material.ENDER_PEARL);
+        new MobSorter("Zombie Pigmen", EntityType.PIG_ZOMBIE, Material.GOLD_NUGGET);
+        new MobSorter("Witch", EntityType.WITCH, Material.POTION);
+        new MobSorter("Villager", EntityType.VILLAGER, Material.EMERALD);
 
         setMobKiller(new MobKiller());
 
         pm.registerEvents(new BlockEvents(), this);
-        //pm.registerEvents(new PlayerEvents(), this);
     }
 
     @Override

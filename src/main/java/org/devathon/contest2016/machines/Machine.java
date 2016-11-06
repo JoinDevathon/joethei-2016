@@ -5,12 +5,12 @@ import org.bukkit.inventory.Recipe;
 
 /**
  * @author joethei
- * @version 0.1
+ * @version 1.0
  */
 public interface Machine {
 
-    public Recipe getRecipe();
-    public void spawn(Location loc);
-    public void despawn(boolean drop);
+    Recipe getRecipe();
+    void spawn(Location loc);
+    void despawn(boolean drop);
     void registerEvents();
 }

@@ -6,7 +6,7 @@ import org.devathon.contest2016.machines.MobSorter;
 
 /**
  * @author joethei
- * @version 0.1
+ * @version 1.0
  */
 public class PlaceMobSorterEvent extends BlockPlaceEvent{
 

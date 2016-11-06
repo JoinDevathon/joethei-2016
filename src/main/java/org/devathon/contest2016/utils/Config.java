@@ -15,7 +15,7 @@ import java.io.IOException;
  */
 public class Config {
 
-    private static final File file = new File("plugins/Core", "blocks.yml");
+    private static final File file = new File("plugins/Devathon", "blocks.yml");
     private static final FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
 
 

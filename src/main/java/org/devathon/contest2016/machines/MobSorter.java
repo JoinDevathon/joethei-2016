@@ -57,7 +57,7 @@ public class MobSorter implements Machine, Listener {
 
     @Override
     public void spawn(Location loc) {
-        this.location = loc;
+        this.location = loc.clone();
         loc.getBlock().setType(Material.BEDROCK);
         loc.getBlock().setMetadata("MobSorter", new FixedMetadataValue(DevathonPlugin.getInstance(), name));
         loc.add(0.0D, 1.0D, 0.0D).getBlock().setType(Material.GOLD_PLATE);
@@ -89,7 +89,8 @@ public class MobSorter implements Machine, Listener {
     public void onEntityInteract(EntityInteractEvent e) {
         Location block = e.getBlock().getLocation().clone().subtract(0.0D, 1.0D, 0.0D);
         if(e.getBlock().getType() == Material.GOLD_PLATE && block.getBlock().getType() == Material.BEDROCK) {
-            if(e.getEntity().getType() == type) {
+            if(e.getEntityType() == EntityType.ARMOR_STAND) e.setCancelled(true);
+            if(e.getEntityType() == type) {
                     despawn(false);
                     for(Player player : Bukkit.getOnlinePlayers()) {
                         player.playSound(block.getBlock().getLocation(), Sound.BLOCK_PISTON_CONTRACT, 1.0F, 1.0F);
@@ -97,7 +98,6 @@ public class MobSorter implements Machine, Listener {
                     Bukkit.getScheduler().scheduleSyncDelayedTask(DevathonPlugin.getInstance(), () -> {
                         spawn(location);
                         for(Player player : Bukkit.getOnlinePlayers()) {
-                            player.sendMessage(location.getX() + " | " + location.getY() +  " | " + location.getZ());
                             player.playSound(block.getBlock().getLocation(), Sound.BLOCK_PISTON_EXTEND, 1.0F, 1.0F);
                         }
                     }, 2 * 20L);

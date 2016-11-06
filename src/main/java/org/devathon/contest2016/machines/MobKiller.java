@@ -18,7 +18,7 @@ import org.devathon.contest2016.utils.ItemBuilder;
 
 /**
  * @author joethei
- * @version 0.1
+ * @version 1.0
  */
 public class MobKiller implements Machine, Listener {
 

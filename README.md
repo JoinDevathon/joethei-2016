@@ -1,11 +1,14 @@
 
-#DONE
+
+
+# DONE
 - MobSorter: allows you to sort your mobs conveniently so you don't have to worry about them.
--MobKiller: kills all those mobs.
+- MobKiller: kills all those mobs.
 
 # TODO
 - fix all those bugs
 
+# Theme
 
 The theme for the 2016 Devathon Contest is: **Machines!**
 Make a machine, make an interaction with a machine, or do something completely creative! As long as it has something to do with machines, you're good to go.

@@ -6,8 +6,9 @@ import org.bukkit.event.entity.EntityChangeBlockEvent;
 import org.bukkit.event.entity.EntityTargetEvent;
 
 /**
+ * entity events for old idea, should still work if registered.
  * @author joethei
- * @version 0.1
+ * @version 1.0
  */
 public class EntityEvents implements Listener {
 

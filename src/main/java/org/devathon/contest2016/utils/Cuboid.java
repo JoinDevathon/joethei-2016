@@ -11,8 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * manage cuboid regions
  * @author joethei
- * @version 1.0
+ * @version 0.5
  */
 public class Cuboid{
 

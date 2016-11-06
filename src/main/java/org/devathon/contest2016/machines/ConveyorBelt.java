@@ -14,9 +14,9 @@ import java.util.List;
 
 /**
  * @author joethei
- * @version 1.0
+ * @version 0.5
  */
-public abstract class ConveyorBelt implements Machine{
+public class ConveyorBelt implements Machine{
 
     private Cuboid cuboid;
     private List<Entity> entityList = new ArrayList<>();

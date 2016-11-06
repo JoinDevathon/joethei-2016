@@ -7,6 +7,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.EulerAngle;
 
 /**
+ * allows to create static floating items
  * @author joethei
  * @version 1.0
  */
