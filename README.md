@@ -1,12 +1,35 @@
+With this plugin you can create some mob farms and other machines in a much more compact design.
 
 
+# Crafting
+
+All recipes are shapeless i.e. you can throw the items into the crafting table as you like.
+
+MobKiller can be crafted with a hopper and a diamond sword.
+
+For the MobSorter there are some versions for some mobs, you can craft them like this:
+Creeper: Piston and gunpowder
+Zombie: Piston and rotten flesh
+Skeleton: Piston and bone
+Enderman: Piston and ender pearl
+Zombie Pigman: Piston and gold nugget
+Witch: Piston and a potion
+Villager: Piston and emerald
+
+if a mob steps on one of the pressure plates the corresponding action will be executed.
 
 # DONE
 - MobSorter: allows you to sort your mobs conveniently so you don't have to worry about them.
 - MobKiller: kills all those mobs.
 
+you can destroy a structure with a right-click with a blaze rod
+
 # TODO
 - find bugs
+
+# Planned was
+- MobCooker: burn the mobs while their alive to get fresh meat.
+- some other helpful features for farming
 
 # Theme
 
